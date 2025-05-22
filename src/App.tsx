@@ -1,9 +1,10 @@
-import Lesson3 from "./pages/Lesson3";
+import Lesson4 from "./pages/Lesson4";
 
 function App() {
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <Lesson3></Lesson3>
+    <div className="w-full flex flex-col items-center justify-center  bg-gray-100">
+      <div className="h-[200vh] w-full bg-red-400"></div>
+      <Lesson4></Lesson4>
     </div>
   );
 }
