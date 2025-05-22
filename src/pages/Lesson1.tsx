@@ -1,13 +1,19 @@
 import { motion, transform } from "motion/react";
 import { useRef } from "react";
 const parent = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, x: 0, y: 0 },
   visible: {
-    opacity: 0.5,
-    scale: 1,
+    x: [0, 300, -300, 0],
+    y: [0, 300, -300, 0],
+    rotate: [0, 360, 0],
+    opacity: 1,
     transition: {
-      ease: "easeInOut",
-      duration: 0.5,
+      ease: "linear",
+      repeat: Infinity,
+      duration: 5,
+      opacity: {
+        duration: 1,
+      },
     },
   },
   hover: {
@@ -20,7 +26,7 @@ const Lesson1 = () => {
   return (
     <div
       ref={parentRef}
-      className="border border-red-500 size-[200px] flex justify-center items-center"
+      className="border border-red-500 size-[500px] flex justify-center items-center"
     >
       <motion.div
         className="size-60 bg-pink-500 rounded-lg flex flex-wrap p-5 gap-5 justify-center items-center"
