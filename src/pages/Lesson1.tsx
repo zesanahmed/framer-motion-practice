@@ -1,11 +1,26 @@
-import { motion } from "motion/react";
+import { motion, transform } from "motion/react";
 const parent = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1 },
-};
-const child = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      ease: "easeInOut",
+      duration: 0.5,
+    },
+  },
+  hover: {
+    scale: 1.1,
+    transition: {
+      transform: {
+        duration: 0.5,
+      },
+    },
+  },
+  tap: {
+    scale: 0.95,
+    rotate: 90,
+  },
 };
 const Lesson1 = () => {
   return (
@@ -15,30 +30,9 @@ const Lesson1 = () => {
         variants={parent}
         initial="hidden"
         animate="visible"
-        transition={{
-          ease: "easeInOut",
-          duration: 1.5,
-          delayChildren: 0.5,
-          staggerChildren: 0.5,
-        }}
-      >
-        <motion.div
-          className="size-20 bg-cyan-400 rounded-sm"
-          variants={child}
-        ></motion.div>
-        <motion.div
-          className="size-20 bg-cyan-400 rounded-sm"
-          variants={child}
-        ></motion.div>
-        <motion.div
-          className="size-20 bg-cyan-400 rounded-sm"
-          variants={child}
-        ></motion.div>
-        <motion.div
-          className="size-20 bg-cyan-400 rounded-sm"
-          variants={child}
-        ></motion.div>
-      </motion.div>
+        whileHover="hover"
+        whileTap="tap"
+      ></motion.div>
     </div>
   );
 };
