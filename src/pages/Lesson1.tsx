@@ -1,4 +1,4 @@
-import { motion, transform } from "motion/react";
+import { motion } from "motion/react";
 import { useRef } from "react";
 const parent = {
   hidden: { opacity: 0, x: 0, y: 0 },
